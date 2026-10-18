@@ -1,0 +1,30 @@
+/* Prism UI components: pure CSS + tiny JS behaviors. Requires tokens.css */
+.pr-btn{font:inherit;font-weight:var(--pr-font-weight-bold);padding:var(--pr-space-2) var(--pr-space-4);border-radius:var(--pr-radius-md);border:1px solid transparent;background:var(--pr-color-primary);color:var(--pr-color-on-primary);cursor:pointer;transition:background .15s}
+.pr-btn:hover{background:var(--pr-color-primary-hover)}
+.pr-btn:focus-visible{outline:none;box-shadow:var(--pr-focus-ring)}
+.pr-btn:disabled{opacity:.5;cursor:not-allowed}
+.pr-btn--secondary{background:transparent;color:var(--pr-color-text);border-color:var(--pr-color-border)}
+.pr-btn--secondary:hover{background:var(--pr-color-surface)}
+.pr-btn--danger{background:var(--pr-color-danger);color:#fff}
+.pr-input{font:inherit;width:100%;box-sizing:border-box;padding:var(--pr-space-2) var(--pr-space-3);border:1px solid var(--pr-color-border);border-radius:var(--pr-radius-md);background:var(--pr-color-bg);color:var(--pr-color-text)}
+.pr-input:focus{outline:none;border-color:var(--pr-color-primary);box-shadow:var(--pr-focus-ring)}
+.pr-input[aria-invalid="true"]{border-color:var(--pr-color-danger)}
+.pr-label{display:block;font-size:var(--pr-font-size-sm);font-weight:var(--pr-font-weight-bold);margin-bottom:var(--pr-space-1)}
+.pr-card{background:var(--pr-color-surface);border:1px solid var(--pr-color-border);border-radius:var(--pr-radius-lg);padding:var(--pr-space-6);box-shadow:var(--pr-shadow-sm)}
+.pr-card--raised{box-shadow:var(--pr-shadow-md)}
+.pr-card__title{margin:0 0 var(--pr-space-2);font-size:var(--pr-font-size-lg)}
+.pr-badge{display:inline-block;font-size:var(--pr-font-size-sm);font-weight:var(--pr-font-weight-bold);padding:0 var(--pr-space-2);border-radius:var(--pr-radius-full);border:1px solid currentColor;color:var(--pr-color-primary)}
+.pr-badge--success{color:var(--pr-color-success)}.pr-badge--warning{color:var(--pr-color-warning)}.pr-badge--danger{color:var(--pr-color-danger)}
+.pr-modal{border:1px solid var(--pr-color-border);border-radius:var(--pr-radius-lg);background:var(--pr-color-bg);color:var(--pr-color-text);box-shadow:var(--pr-shadow-lg);padding:var(--pr-space-6);max-width:28rem;width:calc(100% - 2rem)}
+.pr-modal::backdrop{background:rgb(0 0 0/.5)}
+.pr-tabs [role="tablist"]{display:flex;gap:var(--pr-space-1);border-bottom:1px solid var(--pr-color-border)}
+.pr-tabs [role="tab"]{font:inherit;background:none;border:0;border-bottom:2px solid transparent;color:var(--pr-color-muted);padding:var(--pr-space-2) var(--pr-space-4);cursor:pointer}
+.pr-tabs [role="tab"][aria-selected="true"]{color:var(--pr-color-primary);border-bottom-color:var(--pr-color-primary)}
+.pr-tabs [role="tab"]:focus-visible{outline:none;box-shadow:var(--pr-focus-ring)}
+.pr-tabs [role="tabpanel"]{padding:var(--pr-space-4) 0}
+.pr-toast-region{position:fixed;right:var(--pr-space-4);bottom:var(--pr-space-4);display:flex;flex-direction:column;gap:var(--pr-space-2);z-index:1000}
+.pr-toast{background:var(--pr-color-text);color:var(--pr-color-bg);padding:var(--pr-space-3) var(--pr-space-4);border-radius:var(--pr-radius-md);box-shadow:var(--pr-shadow-md)}
+.pr-tooltip{position:relative}
+.pr-tooltip::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);white-space:nowrap;background:var(--pr-color-text);color:var(--pr-color-bg);font-size:var(--pr-font-size-sm);padding:var(--pr-space-1) var(--pr-space-2);border-radius:var(--pr-radius-sm);opacity:0;pointer-events:none;transition:opacity .15s}
+.pr-tooltip:hover::after,.pr-tooltip:focus-within::after{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
