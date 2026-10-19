@@ -14,7 +14,7 @@ A lightweight, framework-agnostic design-system framework. Design tokens plus ac
 ## Features
 - 🎨 Design tokens as CSS variables: color, spacing, typography, radius, shadow
 - 🌗 Light and dark themes (system preference + manual toggle)
-- 🧩 8 primitives: button, input, card, badge, modal, tabs, toast, tooltip
+- 🧩 9 primitives: button, input, switch, card, badge, modal, tabs, toast, tooltip
 - ♿ Accessibility first: native `<dialog>`, ARIA tabs with keyboard support, visible focus rings
 - 📦 Zero dependencies, ~4 KB of CSS and a tiny ES module
 
@@ -35,6 +35,7 @@ Override any token to rebrand: `:root{ --pr-color-primary:#e11d48; }`
 |---|---|
 | Button | `.pr-btn`, `--secondary`, `--danger` |
 | Input | `.pr-input`, `.pr-label` |
+| Switch | `.pr-switch` with `role="switch"` and `aria-checked`; initialized by `init()` |
 | Card | `.pr-card`, `--raised` |
 | Badge | `.pr-badge`, `--success/warning/danger` |
 | Modal | `.pr-modal` on `<dialog>` |
@@ -43,7 +44,7 @@ Override any token to rebrand: `:root{ --pr-color-primary:#e11d48; }`
 | Tooltip | `.pr-tooltip[data-tip]` |
 
 ## Roadmap
-- [ ] Select, checkbox, radio, switch
+- [ ] Select, checkbox, radio
 - [ ] Web-component wrappers
 - [ ] Token build pipeline (JSON → CSS/Figma)
 - [ ] Accessibility audit and a11y test suite

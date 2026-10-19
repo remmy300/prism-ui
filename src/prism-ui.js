@@ -1,10 +1,22 @@
 /* Prism UI behaviors. Zero dependencies, ES module. */
+const initializedSwitches=new WeakSet();
+
 export function setTheme(theme){document.documentElement.setAttribute('data-theme',theme);try{localStorage.setItem('prism-theme',theme)}catch(e){}}
 export function toggleTheme(){const cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const next=cur==='dark'?'light':'dark';setTheme(next);return next}
 export function initTheme(){try{const t=localStorage.getItem('prism-theme');if(t)setTheme(t)}catch(e){}}
 
 export function openModal(dialog){dialog.showModal()}
 export function closeModal(dialog){dialog.close()}
+
+export function initSwitches(root=document){
+  root.querySelectorAll('.pr-switch[role="switch"]').forEach(toggle=>{
+    if(initializedSwitches.has(toggle))return;
+    initializedSwitches.add(toggle);
+    toggle.addEventListener('click',()=>{
+      toggle.setAttribute('aria-checked',toggle.getAttribute('aria-checked')==='true'?'false':'true');
+    });
+  });
+}
 
 export function toast(message,{duration=3000}={}){
   let region=document.querySelector('.pr-toast-region');
@@ -22,4 +34,4 @@ export function initTabs(root=document){
       t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%list.length;if(e.key==='ArrowLeft')j=(i-1+list.length)%list.length;if(j!==null){e.preventDefault();select(list[j])}})});
   });
 }
-export function init(){initTheme();initTabs()}
+export function init(){initTheme();initTabs();initSwitches()}

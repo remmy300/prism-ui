@@ -6,6 +6,6 @@ JSON.parse(fs.readFileSync('package.json','utf8'));
 for(const f of fs.readdirSync('src'))if(fs.readFileSync('src/'+f,'utf8')!==fs.readFileSync('docs/'+f,'utf8'))err(`docs/${f} out of sync (run npm run sync-docs)`);
 execFileSync('node',['--check','src/prism-ui.js']);
 const html=fs.readFileSync('docs/index.html','utf8');
-for(const c of ['button','input','card','badge','modal','tabs','toast','tooltip'])if(!html.includes(`id="${c}"`))err('docs missing '+c);
+for(const c of ['button','input','switch','card','badge','modal','tabs','toast','tooltip'])if(!html.includes(`id="${c}"`))err('docs missing '+c);
 for(const t of ['color','space','font-size','radius','shadow'])if(!fs.readFileSync('src/tokens.css','utf8').includes(`--pr-${t}`))err('token '+t);
 console.log(fail?'Checks failed':'All checks passed');process.exit(fail);
